@@ -1,3 +1,4 @@
+import { NgModule } from '@angular/core';
 import { OnInit, Component } from '@angular/core';
 import { Cliente } from './cliente.model';
 
@@ -6,6 +7,10 @@ import { Cliente } from './cliente.model';
     templateUrl: './cliente.component.html',
     styleUrls: ['./cliente.component.css']
 })
+
+@NgModule({
+    declarations: [ ClienteComponent ]    
+  })
 
 export class ClienteComponent implements OnInit {
     
