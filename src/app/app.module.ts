@@ -7,10 +7,6 @@ import { AppComponent } from './app.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { LoginComponent } from './login/login.component';
 
-import { FormsModule } from '@angular/forms';
-
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuth  } from '@angular/fire/auth';
 
 import { AuthGuard } from "./guards/auth.guard";
@@ -18,6 +14,11 @@ import { AuthGuard } from "./guards/auth.guard";
 import { LoginService } from "./login/login.service"
 
 import { environment } from '../environments/environment';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [

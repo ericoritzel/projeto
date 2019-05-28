@@ -35,11 +35,10 @@ export class ClienteComponent implements OnInit {
     }
 
     salvar() {
-        this.db.list('cliente').push(this.cliente)
+        this.db.list('clientes').push(this.cliente)
             .then((result: any) => {
                 console.log(result.key);
-            });
-            this.cliente = new Cliente(null,null,null);
+            });            
     }
 
     listar() {        

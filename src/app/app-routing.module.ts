@@ -11,9 +11,10 @@ const routes: Routes = [
     path: 'sistema',    
     //canActivate: [AuthGuard], 
     children: [
-      { path: 'cliente', component: ClienteComponent},
+      
     ]
   },  
+  { path: 'cliente', component: ClienteComponent},
   { path: '', component: LoginComponent},
 ];
 
