@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { OnInit, Component } from '@angular/core';
-import { Cliente } from './cliente.model';
+import { Produto } from './produto.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'
 
@@ -11,31 +11,31 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-    selector: 'cliente',
-    templateUrl: './cliente.component.html',
-    styleUrls: ['./cliente.component.css']
+    selector: 'produto',
+    templateUrl: './produto.component.html',
+    styleUrls: ['./produto.component.css']
 })
 
 @NgModule({
     imports: [FormsModule, CommonModule],
-    declarations: [ClienteComponent]
+    declarations: [ProdutoComponent]
 })
 
-export class ClienteComponent implements OnInit {
+export class ProdutoComponent implements OnInit {
 
-    cliente: Cliente;
-    clientesRef: AngularFireList<any>;
-    clientes: any[];
+    produto: Produto;
+    produtosRef: AngularFireList<any>;
+    produtos: any[];
 
     constructor(private db: AngularFireDatabase) { }
 
     ngOnInit(): void {
-        this.cliente = new Cliente(null,null,null);
+        this.produto = new Produto(null,null,null);
         this.listar();
     }
 
     salvar() {
-        this.db.list('clientes').push(this.cliente)
+        this.db.list('produtos').push(this.produto)
             .then((result: any) => {
                 console.log(result.key);
             });            
@@ -43,14 +43,14 @@ export class ClienteComponent implements OnInit {
 
     listar() {        
         this.getAll().subscribe(
-            clientes => this.clientes = clientes,
+            produtos => this.produtos = produtos,
             error => alert(error),
             () => console.log("terminou")
           );        
     }
 
     getAll() : Observable<any[]> {
-        return this.db.list('clientes')
+        return this.db.list('produtos')
           .snapshotChanges()
           .pipe(
             map(changes => {

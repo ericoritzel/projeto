@@ -5,10 +5,10 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyAX9KDpCiyH_BfmPJdbxrmSoWWuEWskLDg",
+    apiKey: "AIzaSyBq0E7WmFVXaQ2bh0DUfemXvHZ5WnQNOag",
     authDomain: "",
-    databaseURL: "positivo-fe0a0.firebaseio.com",
-    projectId: "positivo-fe0a0",
+    databaseURL: "projetoaulalukas.firebaseio.com",
+    projectId: "projetoaula",
     storageBucket: "",
     messagingSenderId: ""
   }

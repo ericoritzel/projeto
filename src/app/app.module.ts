@@ -4,8 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ClienteComponent } from './cliente/cliente.component';
 import { LoginComponent } from './login/login.component';
+
+import { ClienteComponent } from './cliente/cliente.component';
+import { ProdutoComponent } from './produto/produto.component';
 
 import { AngularFireAuth  } from '@angular/fire/auth';
 
@@ -31,6 +33,7 @@ import { FormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     ClienteComponent,
+    ProdutoComponent,
     LoginComponent    
   ],
   providers: [AuthGuard, LoginService, AngularFireModule, AngularFireAuth],
