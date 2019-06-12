@@ -1,13 +1,20 @@
+<h1>Página de Login da Aplicação</h1>
+
 <form>
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="Insira seu email"
-      name="email" [(ngModel)]="email">      
+      <input type="email" class="form-control" 
+             id="email" placeholder="Insira seu email"
+              name="email" [(ngModel)]="email">      
     </div>
     <div class="form-group">
       <label for="senha">Senha</label>
-      <input type="password" class="form-control" id="senha" placeholder="Digite sua senha"
-      name="senha" [(ngModel)]="senha">
+      <input type="password" class="form-control"
+              id="senha" placeholder="Insira sua senha"
+               name="senha" 
+               [(ngModel)]="senha">
     </div>    
-    <button type="submit" class="btn btn-primary" (click)="logar()">Logar</button>
+
+    <button type="submit" class="btn btn-primary" 
+    (click)="logar()">Logar</button>
   </form>

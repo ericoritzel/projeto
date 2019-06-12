@@ -10,13 +10,15 @@ const routes: Routes = [
   // App routes goes here here
   { 
     path: 'sistema',    
-    //canActivate: [AuthGuard], 
+    canActivate: [AuthGuard], 
     children: [
+      { path: 'cliente', component: ClienteComponent},
+      { path: 'produto', component: ProdutoComponent},
       
     ]
   },  
-  { path: 'cliente', component: ClienteComponent},
-  { path: 'produto', component: ProdutoComponent},
+
+  { path: 'login', component: LoginComponent},
   { path: '', component: LoginComponent},
 ];
 

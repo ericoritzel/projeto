@@ -14,16 +14,16 @@ export class AuthGuard implements CanActivate {
 
         //logic here
         console.log("VERIFY");
-        console.log(localStorage['token']);
+        console.log(localStorage['user ']);
 
-        if (localStorage['token'] == undefined) {
-            this.router.navigate(['/']);
+        if (localStorage['user'] == undefined) {
+            this.router.navigate(['/login']);
         }
 
         if (localStorage['token'] != 'null') {
             return true;
         } else {
-            this.router.navigate(['/']);
+            this.router.navigate(['/login']);
         }
 
     }
