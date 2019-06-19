@@ -3,7 +3,7 @@
 <form>
     <div class="form-group">
         <label for="id">Id</label>
-        <input type="number" class="form-control" id="key" name="key"
+        <input type="string" readonly class="form-control" id="key" name="key"
                 placeholder="Digite o ID"
                 [(ngModel)]="cliente.key">
     </div>  
@@ -18,7 +18,7 @@
         <input type="date" class="form-control" id="dataNascimento" name="dataNascimento"
         [(ngModel)]="cliente.dataNascimento">
     </div>
-    <button class="btn btn-primary" (click)="salvar()">Salvar</button> 
+    <button class="btn btn-primary" (click)="salvar(cliente.key)">Salvar</button> 
 </form>`
 
 <table class="table">
@@ -34,6 +34,10 @@
             <td>{{ cliente.key }}</td>
             <td>{{ cliente.nome }}</td>
             <td>{{ cliente.dataNascimento }}</td>
+            <td><button class="btn btn-primary"
+                (click)="carregar(cliente)">Alterar</button></td>
+            <td><button class="btn btn-primary"
+                (click)="excluir(cliente.key)">Excluir</button></td>
         </tr>
     </tbody>
 </table>

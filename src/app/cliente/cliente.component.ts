@@ -30,15 +30,28 @@ export class ClienteComponent implements OnInit {
     constructor(private db: AngularFireDatabase) { }
 
     ngOnInit(): void {
-        this.cliente = new Cliente(null,null,null);
+        this.cliente = new Cliente();
         this.listar();
     }
 
     salvar() {
-        this.db.list('clientes').push(this.cliente)
+       
+       if (this.cliente.key == null) {
+            this.db.list('clientes').push(this.cliente)
+                .then((result: any) => {
+                    console.log(result.key);
+                });            
+        } else {
+            console.log(this.cliente);
+            this.db.list('clientes').update(this.cliente.key,this.cliente)
             .then((result: any) => {
-                console.log(result.key);
-            });            
+                console.log(result);
+            });  
+        }           
+    }
+    carregar(cliente:Cliente) {
+        this.cliente = new Cliente(cliente.key,
+            cliente.nome, cliente.dataNascimento);
     }
 
     listar() {        
@@ -47,6 +60,15 @@ export class ClienteComponent implements OnInit {
             error => alert(error),
             () => console.log("terminou")
           );        
+    }
+
+    excluir(key:string) {
+        if (confirm('Deseja realmente excluir?')) {
+            this.db.list('clientes').remove(key)
+                .then((result: any) => {
+                    console.log(key);
+                });  
+        }
     }
 
     getAll() : Observable<any[]> {
@@ -58,6 +80,5 @@ export class ClienteComponent implements OnInit {
             })
           );
       }
-
-
-}
+    }
+    
