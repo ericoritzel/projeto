@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ClienteComponent } from './cliente/cliente.component';
 import { ProdutoComponent } from './produto/produto.component';
+import { EstoqueComponent } from './estoque/estoque.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard} from './guards/auth.guard'
 import { TemplateComponent } from './template/template.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
     children: [
       { path: 'cliente', component: ClienteComponent},
       { path: 'produto', component: ProdutoComponent},
+      { path: 'estoque', component: EstoqueComponent},
       
     ]
   },  

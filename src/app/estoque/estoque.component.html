@@ -1,0 +1,44 @@
+<h2>Aqui é o controle de estoque</h2>
+
+<form>
+    <div class="form-group">
+        <label for="id">Id</label>
+        <input type="string" readonly class="form-control" id="key" name="key"
+                placeholder="Digite o ID"
+                [(ngModel)]="estoque.key">
+    </div>  
+    <div class="form-group">
+        <label for="tipo">Tipo de produto</label>
+        <input type="string" class="form-control" id="tipo" name="tipo"
+                placeholder="Tipo de produto"
+                [(ngModel)]="estoque.tipo">
+    </div>    
+    <div class="form-group">
+        <label for="quantidade">Quantidade estocada</label>
+        <input type="number" class="form-control" id="quantidade" name="quantidade"
+        placeholder="Quantidade do produto em estoque"
+        [(ngModel)]="estoque.quantidade">
+    </div>
+    <button class="btn btn-primary" (click)="salvar(estoque.key)">Salvar</button> 
+</form>`
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>    
+            <th>Tipo de Produto</th>    
+            <th>Quantidade Estocada</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let estoque of estoques">
+            <td>{{ estoque.key }}</td>
+            <td>{{ estoque.tipo }}</td>
+            <td>{{ estoque.quantidade }}</td>
+            <td><button class="btn btn-primary"
+                (click)="carregar(estoque)">Alterar</button></td>
+            <td><button class="btn btn-primary"
+                (click)="excluir(estoque.key)">Excluir</button></td>
+        </tr>
+    </tbody>
+</table>

@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { TemplateComponent } from './template/template.component';
 import { ProdutoComponent } from './produto/produto.component';
+import { EstoqueComponent } from './estoque/estoque.component';
 
 import { AngularFireAuth  } from '@angular/fire/auth';
 
@@ -36,6 +37,7 @@ import { FormsModule } from '@angular/forms';
     AngularFireDatabaseModule,
     ClienteComponent,
     ProdutoComponent,
+    EstoqueComponent,
     LoginComponent,
     TemplateComponent    
   ],

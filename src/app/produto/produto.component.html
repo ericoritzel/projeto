@@ -3,7 +3,7 @@
 <form>
     <div class="form-group">
         <label for="id">ID</label>
-        <input type="number" class="form-control" id="key" name="key"
+        <input type="number" readonly class="form-control" id="key" name="key"
                 placeholder="Digite o ID"
                 [(ngModel)]="produto.key">
     </div>  
@@ -35,6 +35,10 @@
             <td>{{ produto.key }}</td>
             <td>{{ produto.nome }}</td>
             <td>{{ produto.preco }}</td>
+            <td><button class="btn btn-primary"
+                (click)="carregar(produto)">Alterar</button></td>
+            <td><button class="btn btn-primary"
+                (click)="excluir(produto.key)">Excluir</button></td>
         </tr>
     </tbody>
 </table>

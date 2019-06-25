@@ -35,29 +35,50 @@ export class ProdutoComponent implements OnInit {
     }
 
     salvar() {
-        this.db.list('produtos').push(this.produto)
-            .then((result: any) => {
-                console.log(result.key);
-            });            
-    }
-
-    listar() {        
-        this.getAll().subscribe(
+       
+        if (this.produto.key == null) {
+             this.db.list('produtos').push(this.produto)
+                 .then((result: any) => {
+                     console.log(result.key);
+                 });            
+         } 
+         else {
+             console.log(this.produto);
+             this.db.list('produtos').update(this.produto.key,this.produto)
+             .then((result: any) => {
+                 console.log(result);
+             });  
+         }           
+     }
+     carregar(produto:Produto) {
+         this.produto = new Produto(produto.key,
+            produto.nome, produto.preco);
+     }
+ 
+     listar() {        
+         this.getAll().subscribe(
             produtos => this.produtos = produtos,
-            error => alert(error),
-            () => console.log("terminou")
-          );        
-    }
-
-    getAll() : Observable<any[]> {
-        return this.db.list('produtos')
-          .snapshotChanges()
-          .pipe(
-            map(changes => {
-              return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
-            })
-          );
-      }
-
-
-}
+             error => alert(error),
+             () => console.log("terminou")
+           );        
+     }
+ 
+     excluir(key:string) {
+         if (confirm('Deseja realmente excluir?')) {
+             this.db.list('produtos').remove(key)
+                 .then((result: any) => {
+                     console.log(key);
+                 });  
+         }
+     }
+ 
+     getAll() : Observable<any[]> {
+         return this.db.list('produtos')
+           .snapshotChanges()
+           .pipe(
+             map(changes => {
+               return changes.map(c => ({ key: c.payload.key, ...c.payload.val() }));
+             })
+           );
+       }
+     }
