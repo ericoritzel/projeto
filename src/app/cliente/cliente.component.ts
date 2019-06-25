@@ -41,7 +41,8 @@ export class ClienteComponent implements OnInit {
                 .then((result: any) => {
                     console.log(result.key);
                 });            
-        } else {
+        } 
+        else {
             console.log(this.cliente);
             this.db.list('clientes').update(this.cliente.key,this.cliente)
             .then((result: any) => {
